@@ -55,7 +55,7 @@ if (me > pc){
     results = "DRAW"
     dice_game.innerHTML=results
 }
-*/
+
 
 //Programma per simulare 100 giocate di dadi
 let mycounter = 0
@@ -86,3 +86,42 @@ for (let i = 0; i < 100; i++) {
 console.log("Ho vinto " + mycounter + " volte");
 console.log("Ho perso " + pccounter + " volte");
 console.log("Ho pareggiato " + drawcounter + " volte");
+*/
+
+//Mail Chiedi all’utente di inserire nel input la sua email, controlla che sia nella lista di chi può accedere,
+//Stampa un messaggio appropriato sull’esito del controllo.
+
+let verify;
+let registred = false
+
+//Creo una array di email registrate
+const email = [`andrea@gmail.com`, `franco@gmail.com`, `gianni@gmail.com`, `francesco@gmail.com`, `giuglia@gmail.com`, `michela@gmail.com`]
+
+
+
+//Faccio inserire la email dell'utente con un eventlistener
+btn.addEventListener(`click`, function () {
+    let userEmail = document.getElementById("email").value
+    console.log(userEmail);
+
+
+    //Verifico tramite ciclo se è presente nella array
+    for (let i = 0; i < email.length; i++) {
+
+        if (userEmail === email[i]) {
+            registred = true
+
+        }
+    }
+    console.log(registred);
+
+    //Rispondo tramite un IF in base a registred = true o false
+    if (registred === true) {
+        verify = "Sei registrato"
+        email_verificated.innerHTML = verify;
+
+    } else if (registred === false) {
+        verify = "Non sei registrato"
+        email_verificated.innerHTML = verify;
+    }
+});
