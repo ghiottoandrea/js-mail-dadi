@@ -26,11 +26,13 @@ if (registred === true){
 }else if (registred === false){
     alert("Non sei registrato")
 }
-*/
+
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Gioco dei dadi
 //Generare un numero random da 1 a 6, sia per il giocatore sia per il computer.
 //Stabilire il vincitore, in base a chi fa il punteggio più alto.
+
+let results = document.getElementById("dice_game")
 
 //Genero un numero casuale per me e il pc
 let me = Math.floor(Math.random()* (6 - 1 + 1))+ 1;
@@ -41,8 +43,46 @@ console.log("Il suo numero è: "+pc)
 //Confronto il mio numero con quello del pc
 if (me > pc){
     console.log(`I win`);
+    results = "I WIN"
+    dice_game.innerHTML=results
+
 }else if(pc > me){
     console.log(`PC win`);
+    results = "PC WIN"
+    dice_game.innerHTML=results
 }else{
     console.log(`Draw`);
+    results = "DRAW"
+    dice_game.innerHTML=results
 }
+*/
+
+//Programma per simulare 100 giocate di dadi
+let mycounter = 0
+let pccounter = 0
+let drawcounter = 0
+
+//Per ogni volta genero un numero casuale e confronto 
+for (let i = 0; i < 100; i++) {
+    let me = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
+    //console.log("Il mio numero è: " + me);
+    let pc = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
+    //console.log("Il suo numero è: " + pc)
+
+    if (me > pc) {
+        // console.log(`I win`);
+        mycounter = (mycounter + 1)
+
+    } else if (pc > me) {
+        //console.log(`PC win`);
+        pccounter = (pccounter + 1)
+
+    } else {
+        //console.log(`Draw`);
+        drawcounter = (drawcounter + 1)
+    }
+}
+
+console.log("Ho vinto " + mycounter + " volte");
+console.log("Ho perso " + pccounter + " volte");
+console.log("Ho pareggiato " + drawcounter + " volte");
