@@ -1,3 +1,4 @@
+/*
 //Mail Chiedi all’utente la sua email, controlla che sia nella lista di chi può accedere,
 //stampa un messaggio appropriato sull’esito del controllo.
 
@@ -25,21 +26,23 @@ if (registred === true){
 }else if (registred === false){
     alert("Non sei registrato")
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Gioco dei dadi
-//Generare un numero random da 1 a 6, sia per il giocatore sia per il computer. Stabilire il vincitore, in base a chi fa il punteggio più alto.
+//Generare un numero random da 1 a 6, sia per il giocatore sia per il computer.
+//Stabilire il vincitore, in base a chi fa il punteggio più alto.
+
+//Genero un numero casuale per me e il pc
+let me = Math.floor(Math.random()* (6 - 1 + 1))+ 1;
+console.log("Il mio numero è: "+me);
+let pc = Math.floor(Math.random()* (6 - 1 + 1))+ 1;
+console.log("Il suo numero è: "+pc)
+
+//Confronto il mio numero con quello del pc
+if (me > pc){
+    console.log(`I win`);
+}else if(pc > me){
+    console.log(`PC win`);
+}else{
+    console.log(`Draw`);
+}
